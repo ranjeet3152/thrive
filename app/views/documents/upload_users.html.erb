@@ -1,0 +1,14 @@
+<%= link_to "Back", documents_path(admin_id: params[:admin_id]), class: "btn btn-primary" %><br><br>
+<h4>Import Data</h4>
+<div class="row">
+	<%= form_tag import_user_documents_path, multipart: true do %>
+		<%= file_field_tag :file %><br><br>
+		<%= hidden_field_tag 'user[admin_id]', params[:admin_id] %>
+		<%= hidden_field_tag 'user[upload]', 'user' %>
+		<%= submit_tag 'Import CSV' %>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+	
+</script>

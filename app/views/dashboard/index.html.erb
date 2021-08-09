@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">Welcome</h1>
+<div id="dashboard-details" style="border: 50px solid #aaa;padding: 300px;">
+	<div class="row">
+		<div class="col-md-5">
+			<b>Navigate to Document page to upload data</b>
+			<%= link_to "Upload Document", documents_path(admin_id: @admin.id), class: "btn btn-primary" %>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+			<b>See Reports</b>
+			<ul>
+				<li><%= link_to "User Report", user_report_documents_path(admin_id: @admin.id, report_type: 'user'), class: "btn btn-primary" %></li><br>
+				<li><%= link_to "Transaction Report", transaction_report_documents_path(admin_id: @admin.id, report_type: 'transaction'), class: "btn btn-primary" %></li>
+			</ul>
+		</div>
+	</div>
+</div>

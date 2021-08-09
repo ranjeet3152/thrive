@@ -1,0 +1,15 @@
+<%= link_to "Back", dashboard_index_path, class: "btn btn-primary" %>
+
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+<br><br>
+<%= link_to "Upload Users File", upload_users_documents_path(admin_id: params[:admin_id], type: 'user'), class: "btn btn-primary" %>
+<br />
+<br />
+
+<%= link_to "Upload Transaction File", upload_transactions_documents_path(admin_id: params[:admin_id], type: 'transaction'), class: "btn btn-primary" %>

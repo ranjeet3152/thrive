@@ -1,0 +1,29 @@
+<label for="time_interval">Please Select Duration:</label>
+<% current_date = Date.current %>
+<select name="time_interval" id="time_interval">
+	<option></option>
+  <option value="<%= current_date.yesterday %>">Yesterday</option>
+  <option value="<%= current_date - 7.days %>">Last 7 Days</option>
+  <option value="<%= current_date - 30.days %>">Last 30 Days</option>
+  <option value="<%= current_date - 90.days %>">Last 90 Days</option>
+  <option value="<%= current_date %>">Last Year</option>
+</select>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$('#time_interval').on('change', function() {
+		text = $('#time_interval option:selected').text()
+		type = '<%= params[:report_type] %>'
+		val = $('#time_interval').val()
+		$.ajax({
+	    type : 'get',
+	    url: '/documents/filter_data',
+	    data: {
+	      text: text,
+	      type: type,
+	      remote: "true"
+	    },
+	  })
+	})
+</script>
